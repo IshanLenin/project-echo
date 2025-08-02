@@ -1,0 +1,15 @@
+# Ignore raw data
+*.csv
+*.zip
+
+# Ignore saved models
+*.pkl
+*.model
+
+# Ignore Python's virtual environment and cache
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Ignore IDE specific files
+.env

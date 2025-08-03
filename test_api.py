@@ -9,8 +9,8 @@ def test_read_root():
     Test that the root endpoint ("/") returns a 200 OK status code
     and the correct welcome message.
     """
-    response = client.get("/")
-    assert response.status_code == 200
+    response = client.get("/")  # Send a GET request to the root endpoint
+    assert response.status_code == 200 
     assert response.json() == {"message": "Welcome to the Word2Vec Recommendation API!"}
 
 def test_get_recommendations():

@@ -31,14 +31,14 @@ jobs:
     steps:
       - name: Deploy to DigitalOcean Droplet
         uses: appleboy/ssh-action@master
-        with:
+        with: 
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~/project-echo
+            cd /home/deployer/project-echo
             git pull
-            sudo docker stop reco-container || true
-            sudo docker rm reco-container || true
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/reco-api:latest
-            sudo docker run -d -p 8000:8000 --name reco-container ${{ secrets.DOCKERHUB_USERNAME }}/reco-api:latest
+            docker stop reco-container || true
+            docker rm reco-container || true
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/reco-api:latest
+            docker run -d -p 8000:8000 --name reco-container ${{ secrets.DOCKERHUB_USERNAME }}/reco-api:latest

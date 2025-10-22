@@ -7,7 +7,7 @@ A complete MLOps pipeline designed and deployed to serve real-time, session-base
 
 
 
-**Motivation & Problem Solved****
+**Motivation & Problem Solved**
 
 Traditional recommendation systems often rely on user history, which isn't available for new or anonymous users. This project tackles the challenge of providing relevant product recommendations based only on a user's current browsing session. The goal was to build not just a model, but the entire production infrastructure required to train, deploy, and serve these recommendations reliably and efficiently, automating the process with a CI/CD pipeline.
 

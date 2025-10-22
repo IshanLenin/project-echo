@@ -14,21 +14,21 @@ Traditional recommendation systems often rely on user history, which isn't avail
 
 **Tech Stack**
 
-Cloud Provider: DigitalOcean (Droplet)
+**Cloud Provider**: DigitalOcean (Droplet)
 
-Web Server / Proxy: Nginx
+**Web Server / Proxy**:Nginx
 
-Application Framework: FastAPI (Python)
+**Application Framework**: FastAPI (Python)
 
-Database: PostgreSQL
+**Database**: PostgreSQL
 
-ML Model: Word2Vec (Gensim)
+**ML Model**: Word2Vec (Gensim)
 
-Data Processing: Pandas
+**Data Processing**: Pandas
 
-Containerization: Docker
+**Containerization**: Docker
 
-CI/CD: GitHub Actions
+**CI/CD**: GitHub Actions
 
 
 

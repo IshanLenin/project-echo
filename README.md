@@ -1,7 +1,9 @@
 **End-to-End Session-Based Recommendation Engine**
 
 
-[![CI/CD Pipeline for Recommendation API](https://github.com/IshanLenin/project-echo/actions/workflows/deploy.yml/badge.svg)](https://github.com/IshanLenin/project-echo/actions/workflows/deploy.yml)
+[CI/CD Pipeline for Recommendation API](https://github.com/IshanLenin/project-echo/actions/workflows/deploy.yml/badge.svg)]
+
+(https://github.com/IshanLenin/project-echo/actions/workflows/deploy.yml)
 
 **A complete MLOps pipeline designed and deployed to serve real-time, session-based product recommendations via a secure REST API. This project demonstrates proficiency in data engineering, model training, containerization, cloud deployment, and CI/CD automation.**
 

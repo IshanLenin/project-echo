@@ -1,9 +1,9 @@
-**Project Echo: End-to-End Session-Based Recommendation Engine
+**Project Echo: End-to-End Session-Based Recommendation Engine**
 
 
 (Optional: Add more relevant badges if desired)
 
-A complete MLOps pipeline designed and deployed to serve real-time, session-based product recommendations via a secure REST API. This project demonstrates proficiency in data engineering, model training, containerization, cloud deployment, and CI/CD automation.
+**A complete MLOps pipeline designed and deployed to serve real-time, session-based product recommendations via a secure REST API. This project demonstrates proficiency in data engineering, model training, containerization, cloud deployment, and CI/CD automation.
 **
 **Live Demo**: https://reco.ishan-visionary.tech
 

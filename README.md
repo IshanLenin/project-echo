@@ -1,15 +1,15 @@
 **Project Echo: End-to-End Session-Based Recommendation Engine**
 
 
-(Optional: Add more relevant badges if desired)
+[![CI/CD Pipeline for Recommendation API](https://github.com/IshanLenin/project-echo/actions/workflows/deploy.yml/badge.svg)](https://github.com/IshanLenin/project-echo/actions/workflows/deploy.yml)
 
-**A complete MLOps pipeline designed and deployed to serve real-time, session-based product recommendations via a secure REST API. This project demonstrates proficiency in data engineering, model training, containerization, cloud deployment, and CI/CD automation.
-**
+**A complete MLOps pipeline designed and deployed to serve real-time, session-based product recommendations via a secure REST API. This project demonstrates proficiency in data engineering, model training, containerization, cloud deployment, and CI/CD automation.**
+
 **Live Demo**: https://reco.ishan-visionary.tech
 
 **Architecture Diagram**
 
-(Ensure the image file is located at 'Docs/Project Echo Architecture.png' within your repository for this link to work)
+![Project Echo Architecture Diagram](Docs/Project%20Echo%20Architecture.png)
 
 **Motivation & Problem Solved**
 

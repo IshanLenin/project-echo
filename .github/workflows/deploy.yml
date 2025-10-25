@@ -1,9 +1,8 @@
-name: CI/CD Pipeline for Recommendation API
+name: Deploy Echo to DigitalOcean
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build-and-push:
@@ -16,29 +15,46 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }} # Use TOKEN here
 
       - name: Build and push Docker image
+        # Assuming your image should be named reco-api based on the error log
         uses: docker/build-push-action@v4
         with:
           context: .
+          file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/reco-api:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/reco-api:latest # Ensure correct image name
 
-  deploy:
-    needs: build-and-push
+  deploy-to-droplet:
     runs-on: ubuntu-latest
+    needs: build-and-push
     steps:
-      - name: Deploy to DigitalOcean Droplet
+      - name: Deploy to Droplet
         uses: appleboy/ssh-action@master
-        with: 
+        with:
           host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
+          username: ${{ secrets.SSH_USERNAME }} # Should be root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/deployer/project-echo
-            git pull
-            docker stop reco-container || true
-            docker rm reco-container || true
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/reco-api:latest
-            docker run -d -p 8000:8000 --name reco-container ${{ secrets.DOCKERHUB_USERNAME }}/reco-api:latest
+            echo "--- Successfully connected to Droplet ---"
+
+            # Login to Docker Hub using the token
+            echo "--- Logging into Docker Hub ---"
+            echo "${{ secrets.DOCKERHUB_TOKEN }}" | sudo docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+            # Pull latest Docker image (Using reco-api based on error log)
+            echo "--- Pulling latest image ---"
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/reco-api:latest
+
+            # Stop and remove old container if exists
+            echo "--- Restarting container ---"
+            sudo docker stop reco-container || true
+            sudo docker rm reco-container || true
+
+            # Run new container
+            echo "--- Starting new container ---"
+            # Ensure the container name 'reco-container' matches what you expect
+            sudo docker run -d -p 8000:8000 --name reco-container ${{ secrets.DOCKERHUB_USERNAME }}/reco-api:latest
+
+            echo "--- Deployment complete! ---"
